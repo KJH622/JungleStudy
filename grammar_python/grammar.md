@@ -741,3 +741,160 @@ thislist = ["apple", "banana", "cherry"]
     newlist = [x for x in fruits if "a" in x]
     print(newlist) # ['apple', 'banana', 'mango']
     ```
+
+#### 리스트 정렬
+
+- **sort()**
+
+    - 영숫자 순으로, 오름차순으로 정렬
+
+    - 모든 대문자가 소문자보다 먼저 정렬된다.
+
+    ```
+    thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+    thislist.sort()
+    print(thislist) # ['banana', 'kiwi', 'mango', 'orange', 'pineapple']
+    ```
+
+    ```
+    thislist = [100, 50, 65, 82, 23]
+    thislist.sort()
+    print(thislist) # [23, 50, 65, 82, 100]
+    ```
+
+- **reverse = True**
+
+    - 내림차순 정렬
+
+    ```
+    thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+    thislist.sort(reverse = True)
+    print(thislist) # ['pineapple', 'orange', 'mango', 'kiwi', 'banana']
+    ```
+
+    ```
+    thislist = [100, 50, 65, 82, 23]
+    thislist.sort(reverse = True)
+    print(thislist) # [100, 82, 65, 50, 23]
+    ```
+
+- **정렬 기능 사용자 지정**
+
+    - 키워드 인수 사용하여 사용자 지정 함수 만들 수 있다.
+
+        `key = function`
+
+    - 이는 리스트를 정렬하는 데 사용될 숫자(가장 작은 숫자부터) 반환한다.
+
+    ```
+    def myfunc(n):
+        return abs(n - 50) # 절댓값 반환 함수
+    
+    thislist = [100, 50, 65, 82, 23]
+    thislist.sort(key = myfunc)
+    print(thislist) # [50, 65, 23, 82, 100]
+    ```
+
+    - 대소문자 구분하지 않는 정렬 : `str.lower`
+
+    ```
+    thislist = ["banana", "Orange", "Kiwi", "cherry"]
+    thislist.sort(key = str.lower)
+    print(thislist) # ['banana', 'cherry', 'Kiwi', 'Orange']
+    ```
+
+    - 역순 : `reverse()`
+
+    ```
+    thislist = ["banana", "Orange", "Kiwi", "cherry"]
+    thislist.reverse()
+    print(thislist) # ['cherry', 'Kiwi', 'Orange', 'banana']
+    ```
+
+#### 리스트 복사
+
+- **copy()**
+
+    - 리스트 복사하는 내장된 List 메서드
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    mylist = thislist.copy()
+    print(mylist) # ['apple', 'banana', 'cherry']
+    ```
+
+- **list()**
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    mylist = list(thislist)
+    print(mylist) # ['apple', 'banana', 'cherry']
+    ```
+
+- **[:]**
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    mylist = thislist[:]
+    print(mylist) # ['apple', 'banana', 'cherry'] 
+    ```
+
+#### Join Lists
+
+- **목록 결합 : `+`**
+
+    ```
+    list1 = ["a", "b", "c"]
+    list2 = [1, 2, 3]
+
+    list3 = list1 + list2
+    print(list3) # ['a', 'b', 'c', 1, 2, 3]
+    ```
+
+- **append()**
+
+    ```
+    list1 = ["a", "b", "c"]
+    list2 = [1, 2, 3]
+
+    for x in list2:
+        list1.append(x)
+    
+    print(list1) # ['a', 'b', 'c', 1, 2, 3]
+    ```
+
+- **extend()**
+
+    - 한 리스트의 요소를 다른 리스트에 추가
+
+    ```
+    list1 = ["a", "b", "c"]
+    list2 = [1, 2, 3]
+
+    list1.extend(list2)
+    print(list1) # ['a', 'b', 'c', 1, 2, 3]
+    ```
+
+#### 리스트 메서드
+
+- `append()` : 목록 끝에 요소 추가
+
+- `clear()` : 목록에서 모든 요소 제거
+
+- `copy()` : 목록의 복사본 반환
+
+- `count()` : 지정된 값을 가진 요소의 수 반환
+
+- `extend()` : 현재 목록의 끝에 목록의 요소를 추가
+
+- `index()` : 지정된 값으로 첫 번째 요소의 인덱스를 반환
+
+- `insert()` : 지정된 위치에 요소를 추가
+
+- `pop()` : 지정된 위치에서 요소를 제거
+
+- `remove()` : 지정된 값으로 항목을 제거
+
+- `reverse()` : 목록의 순서를 반대로 바꾼다.
+
+- `sort()` : 목록 정렬
