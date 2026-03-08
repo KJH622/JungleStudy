@@ -3,11 +3,11 @@
 
 문제 설명:
 - 학생들의 이름과 점수를 입력받아 평균 점수 이상인 학생들을 찾아 출력합니다.
-- 파이썬의 기본 자료구조인 리스트와 딕셔너리를 활용하는 문제입니다.
+- 파이썬/ 기본 자료구조인 리스트와 딕셔너리를 활용하는 문제입니다.
 
 입력:
 - students: 학생 정보를 담은 딕셔너리 리스트
-  예: [{"name": "Alice", "score": 85}, {"name": "Bob", "score": 92}]
+예: [{"name": "Alice", "score": 85}, {"name": "Bob", "score": 92}]
 
 출력:
 - 평균 점수
@@ -42,13 +42,18 @@ def find_above_average_students(students):
         tuple: (평균 점수, 평균 이상 학생 이름 리스트)
     """
     # TODO: 모든 학생의 점수를 리스트로 추출하세요
-    pass
+    lst = []
+    for student in students:
+        lst.append(student["score"])
     
     # TODO: 평균 점수를 계산하세요
-    pass
+    average = sum(lst) / len(lst)
     
     # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
-    pass
+    above_average_students = []
+    for student in students:
+        if student["score"] >= average:
+            above_average_students.append(student["name"])
     
     return average, above_average_students
 
