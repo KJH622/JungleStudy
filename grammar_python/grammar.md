@@ -331,6 +331,4 @@ print(txt)
 
 - 0을 제외한 모든 숫자는 True
 
-- 빈 list, tuple, set, dictionary를 제외한 모든 list, tuple, set, dictionary는 True
-
-- False로 평가되는 값 : `()` , `[]` , `{}` , `""` , `0` `None`
+- 
