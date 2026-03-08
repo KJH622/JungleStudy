@@ -331,4 +331,413 @@ print(txt)
 
 - 0을 제외한 모든 숫자는 True
 
-- 
+- 0 또는 False를 반환하는 `__len_` 함수가 있는 클래스로 구성된 객체 : False
+
+    ```
+    class myclass():
+        def __len__(self):
+            return 0
+    
+    myobj = myclass()
+    print(bool(myobj)) # False
+    ```
+
+- Boolean 값을 반환하는 함수 생성 가능
+
+    ```
+    def myFunction():
+        return True
+    
+    print(myFunction()) # True
+    ```
+
+### isinstance()
+
+- 객체가 특정 데이터 유형인지 여부를 판단하는 데 사용할 수 있는 함수
+
+    ```
+    x = 200
+    print(isinstance(x, int)) # True
+    ```
+
+### 연산자 (Operator)
+
+#### 산술 연산자
+
+- `+`, `-`, `*`, `/`, `% (나머지)`, `**(거듭제곱)`, `//(몫)`
+
+- `/` : 실수형 값 반환
+
+- `//` : 정수를 반환
+
+#### 할당 연산자
+
+- `=` : `x = 5` == `x = 5`
+
+- `+=` : `x += 3` == `x = x + 3`
+
+- `-=` : `x -= 3` == `x = x - 3`
+
+- `*=` : `x *= 3` == `x = x * 3`
+
+- `/=` : `x /= 3` == `x = x / 3`
+
+- `%=` : `x %= 3` == `x = x % 3`
+
+- `//=` : `x //= 3` == `x = x // 3`
+
+- `**=` : `x **= 3` == `x = x ** 3`
+
+- `&=` : `x &= 3` == `x = x & 3`
+
+    - 좌측 변수에 우측 값을 비트 단위 AND 연산한 결과를 다시 좌측 변수에 할당하는 복합 대입 연산자
+
+- `|=` : `x |= 3` == `x = x | 3`
+
+    - 왼쪽 변수에 오른쪽 값을 비트 단위 OR(|) 연산한 후, 그 결과를 다시 왼쪽 변수에 저장하는 복합 대입 연산자
+
+- `^=` : `x ^= 3` == `x = x ^ 3`
+
+    - XOR 후 할당
+
+    - 같으면 0, 다르면 1
+
+- `>>=` : `x >>= 3` == `x = x >> 3`
+
+    - 오른쪽 시프트 후 할당
+
+    - `>>`는 비트를 오른쪽으로 3칸 이동시키는 연산
+
+- `<<=` : `x <<= 3` == `x = x << 3`
+
+    - 왼쪽 시프트 후 연산
+
+    - `<<`는 비트를 왼쪽으로 3칸 이동시키는 연산
+
+- `:=` : `print(x:=3)` == `x = 3; print(x);`
+
+    - 할당 표현식이다.
+
+    - 값을 대입하면서 동시에 그 값을 식 안에서 사용할 수 있다.
+
+#### 비교 연산자
+
+- `==`, `!=`, `>`, `<`, `>=`, `<=`
+
+- `1 < x < 10` == `1 < x and x < 10`
+
+#### 논리 연산자
+
+- `and` : 둘 다 true 이면 true
+
+- `or` : 둘 중 하나만 true이면 true
+
+- `not` : reverse the result
+
+#### 아이디 연산자 (Identity Operators)
+
+- 실제로 동일한 객체인지, 즉 동일한 메모리 위치에 있는지를 비교
+
+- **is**
+
+    ```
+    x = ["apple", "banana"]
+    y = ["apple", "banana"]
+    z = x
+
+    print(x is z) # True
+    print(x is y) # False
+    print(x == y) # True
+    ```
+
+- **is not**
+
+    ```
+    x = ["apple", "banana"]
+    y = ["apple", "banana"]
+
+    print(x is not y) # True
+    ```
+
+- **`is` VS `==`**
+
+    - **is** : 두 변수가 메모리에서 동일한 객체를 가리키는지 확인
+
+    - **==** : 두 변수의 값이 같은지 확인
+
+    ```
+    x = [1, 2, 3]
+    y = [1, 2, 3]
+
+    print(x == y) # True
+    print(x is y) # False
+    ```
+
+#### 멤버십 연산자 (Membership Operators)
+
+- 시퀀스가 객체에 존재하는지 여부를 테스트하는데 사용
+
+- **in** : `x in y`
+
+    ```
+    fruits = ["apple", "banana", "cherry"]
+    print("banana" in fruits) # True
+    ```
+
+- **not in** : `x not in y`
+
+    ```
+    fruits = ["apple", "banana", "cherry"]
+    print("pineapple" not in fruits) # True
+    ```
+
+- 멤버십 연산자는 문자열에서도 작동한다.
+
+#### 비트 연산자
+
+- `&` : AND -> `x & y`
+
+- `|` : OR -> `x|y`
+
+- `^` : XOR -> `x^y`
+
+    - 같으면 1, 다르면 0
+
+- `~` : NOT -> `~x`
+
+    - `-(x + 1)` 하면 된다.
+
+- `<<` : Zero fill left shirt -> `x << 2`
+
+    - 왼쪽으로 2칸 당기기
+
+- `>>` : Signed right shift -> `x >> 2`
+
+    - 오른쪽으로 2칸 밀기
+
+#### 연산자 우선순위
+
+우선순위가 높은 순
+
+1. `()`
+
+2. `**`
+
+3. `+x`, `-x`, `~x`
+
+4. `*`, `/`, `//`, `%`
+
+5. `+`, `-`
+
+6. `<<`, `>>`
+
+7. `&`
+
+8. `^`
+
+9. `|`
+
+10. `==`, `!=`, `>`, `>=`, `<`, `<=`, `is`, `is not`, `in`, `not in`
+
+11. `not`
+
+12. `and`
+
+13. `or`
+
+### 리스트 (Lists)
+
+- 리스트는 하나의 변수에 여러 항목을 저장하는 데 사용된다.
+
+- 목록은 대괄호를 사용하여 만든다.
+
+```
+thislist = ["apple", "banana", "cherry"]
+print(thislist) # ['apple', 'banana', 'cherry']
+```
+
+- **특징**
+
+    - 정해진 순서가 있고 그 순서는 변하지 않는다.
+
+        새 항목을 추가하면 목록의 맨 끝에 추가된다.
+    
+    - 항목을 변경, 추가, 삭제를 할 수 있다.
+
+    - 중복 허용
+
+- **list() 생성자**
+
+    - 새로운 리스트를 생성할 때 `list()` 생성자를 사용한다.
+
+    ```
+    thislist = list(("apple", "banana", "cherry"))
+    print(thislist) # ['apple', 'banana', 'cherry']
+    ```
+
+#### Python Arrays
+
+- **List** : 순서 O, 변경 가능, 중복 허용
+
+- **Tuple** : 순서 O, 변경 불가능, 중복 허용
+
+- **Set** : 순서 X, 변경 불가능, 인덱싱 X, 중복 불가
+
+- **Set** : 순서 O, 변경 가능, 중복 불가
+
+#### List Access Items
+
+- 인덱스 number 사용
+
+> 인덱스가 0부터 시작
+
+- **음수 인덱싱**
+
+    - 인덱스가 -1부터 시작 (뒤에서부터)
+
+- **인덱스 범위**
+
+    - 슬라이싱처럼 하면 된다.
+
+    - 교체 시, 교체할 항목보다 새 항목을 더 많이 삽입하면 새 항목은 지정한 위치에 삽입되고 나머지 항목은 그에 따라 이동한다.
+
+        ```
+        thislist = ["apple", "banana", "cherry"]
+        thislist[1:2] = ["blackcurrant", "watermelon"]
+        print(thislist) # ['apple', 'blackcurrant', 'watermelon', 'cherry']
+        ```
+    
+    - 교체 시, 교체할 항목보다 새로 삽입할 항목이 적은 경우, 새 항목은 지정한 위치에 삽입되고 나머지 항목은 그에 따라 이동한다.
+
+        ```
+        thislist = ["apple", "banana", "cherry"]
+        thislist[1:3] = ["watermelon"]
+        print(thislist) # ['apple', 'watermelon']
+        ```
+    
+- **insert()**
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    thislist.insert(2, "watermelon")
+    print(thislist) # ['apple', banana', 'watermelon', 'cherry']
+    ```
+
+#### Add List Items
+
+- **append()** : 추가
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    thislist.append("orange")
+    print(thislist) # ['apple', 'banana', 'cherry', 'orange']
+    ```
+
+- **extend()** : 확장
+
+    - 해당 요소들은 목록의 끝에 추가한다.
+
+    - 튜플, 세트, 딕셔너리 등 모든 반복 가능한 객체를 추가할 수 있다.
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    tropical = ["mango", "pineapple", "papaya"]
+    thislist.extend(tropical)
+    print(thislist) # ['apple', 'banana', 'cherry', 'mango', 'pineapple', 'papaya']
+
+#### Remove List Items
+
+- **remove()**
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    thislist.remove("banana")
+    print(thislist) # ['apple', 'cherry']
+    ```
+
+- 지정된 값을 가진 항목이 두 개 이상이면 첫 번째 항목을 제거한다.
+
+    ```
+    thislist = ["apple", "banana", "cherry", "banana", "kiwi"]
+    thislist.remove("banana")
+    print(thislist) # ['apple', 'cherry', 'banana', 'kiwi']
+    ```
+
+- **pop() (지정된 인덱스 제거)**
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    thislist.pop(1)
+    print(thislist) # ['apple', 'cherry']
+    ```
+
+    - 인덱스 지정하지 않으면 마지막 항목을 제거
+
+        ```
+        thislist = ["apple", "banana", "cherry"]
+        thislist.pop()
+        print(thislist) # ['apple', 'banana']
+        ```
+
+- **del()**
+
+    - 지정된 인덱스도 제거
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    del thislist[0]
+    print(thislist) # ['banana', 'cherry']
+    ```
+
+    - 목록을 완전히 삭제
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    del thislist
+    ```
+
+- **clear()**
+
+    - 리스트를 비운다.
+
+    - 목록은 여전히 남아 있지만 내용은 없다.
+
+    ```
+    thislist = ["apple", "banana", "cherry"]
+    thislist.clear()
+    print(thislist) # []
+    ```
+
+#### List Comprehension
+
+```
+thislist = ["apple", "banana", "cherry"]
+[print(x) for x in thislist]
+
+# apple
+# banana
+# cherry
+```
+
+- 기존 리스트의 값을 기반으로 새 리스트를 만들 때 더 간결하다.
+
+    => for문으로
+
+    ```
+    fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+    newlist = []
+
+    for x in fruits:
+        if "a" in x:
+            newlist.append(x)
+    
+    print(newlist) # ['apple', 'banana', 'mango']
+    ```
+
+    => List Comprehension으로
+
+    ```
+    fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+    newlist = [x for x in fruits if "a" in x]
+    print(newlist) # ['apple', 'banana', 'mango']
+    ```
