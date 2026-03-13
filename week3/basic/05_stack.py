@@ -84,4 +84,4 @@ if __name__ == "__main__":
     print(f"입력: {test4}")
     print(f"결과: {result4}")
 
-
+"".join(['a','b','c'])
