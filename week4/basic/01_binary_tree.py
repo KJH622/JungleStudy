@@ -32,28 +32,35 @@
 - 순회 순서만 다름
 """
 
+# root = Node(10) -> 값이 10인 노드를 만들고 그 노드를 root가 가리킨다.
+# root.left = Node(5) -> 값이 5인 노드를 새로 만들어서, root의 왼쪽 자식으로 연결한다.
+
+# 높이(height) : 트리가 얼마나 높이 뻗어 있는지
+# 깊이(depth) : 위에서 아래로 얼마나 내려왔는지
+
 class TreeNode:
     """이진 트리 노드"""
     def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+        self.value = value # 값 하나 저장
+        self.left = None # 왼쪽 자식은 아직 없음
+        self.right = None # 오른쪽 자식은 아직 없음
 
 def preorder(root):
     """전위 순회: 루트 → 왼쪽 → 오른쪽"""
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     # TODO: 왼쪽 서브트리 순회
-    pass
+    result.extend(preorder(root.left))
     
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result.extend(preorder(root.right))
     
     return result
 
@@ -62,16 +69,17 @@ def inorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 왼쪽 서브트리 순회
-    pass
+    result.extend(inorder(root.left))
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result.extend(inorder(root.right))
     
     return result
 
@@ -80,16 +88,17 @@ def postorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 왼쪽 서브트리 순회
-    pass
+    result.extend(postorder(root.left))
     
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result.extend(postorder(root.right))
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     return result
 
